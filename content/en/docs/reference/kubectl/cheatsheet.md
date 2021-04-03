@@ -396,6 +396,8 @@ kubectl get pods -A -o=custom-columns='DATA:spec.containers[?(@.image!="k8s.gcr.
 # All fields under metadata regardless of name
 kubectl get pods -A -o=custom-columns='DATA:metadata.*'
 ```
+# Use JSON PATH query to retrieve the osImages of all the nodes
+kubectl get nodes -o jsonpath='{.items[*].status.nodeInfo.osImage}'
 
 More examples in the kubectl [reference documentation](/docs/reference/kubectl/overview/#custom-columns).
 
